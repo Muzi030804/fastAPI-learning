@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CORS实验</title>
+</head>
+<body>
+<h1>CORS最小实验</h1>
+<button id = "request-button">请求FastAPI</button>
+<pre id="result">等待请求</pre>
+
+<script>
+    const button = document.getElementById("request-button");
+    const result = document.getElementById("result");
+
+    button.addEventListener("click", async function(){
+        try {
+            const response = await fetch(           //fetch(...): 让浏览器请求FastAPI
+                "http://127.0.0.1:8000/api/message"
+            );
+            const data = await response.json();     //把JSON响应转换成可使用的数据
+            result.textContent = JSON.stringify(data, null, 2);
+        } catch (error){
+            result.textContent = "请求失败,请查看浏览器控制台";
+            console.error(error);
+        }
+    });
+</script>
+</body>
+</html>
