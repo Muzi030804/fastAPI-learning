@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Node（项目物料中的前端）
+node_modules/
+node_modules.*/
+
+# IDE
+.idea/
+.vscode/
+
+# 运行数据与压缩包
+*.log
+sessions/
+*.zip
